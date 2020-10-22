@@ -1,0 +1,18 @@
+/* Fuck ruben mais oklm il viendra jamais sur ce fichier */
+
+.footer {
+  background-color: red;
+}
+
+.layout {
+  display: "flex";
+  flex-direction: "column";
+  height: "100%";
+  width: "100%";
+}
+
+.content {
+  flex: 1;
+  display: "flex";
+  flex-direction: "column";
+}
