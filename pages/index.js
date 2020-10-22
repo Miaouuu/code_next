@@ -1,18 +1,14 @@
-import Link from 'next/link'
+import io from "socket.io-client";
+import { useEffect } from "react";
 
 export default function Home() {
+  useEffect(() => {
+    const socket = io();
+    socket.on("test");
+  }, []);
   return (
-    <ul>
-      <li>
-        <Link href="/b" as="/a">
-          <a>a</a>
-        </Link>
-      </li>
-      <li>
-        <Link href="/a" as="/b">
-          <a>b</a>
-        </Link>
-      </li>
-    </ul>
-  )
+    <div>
+      <p>Oui</p>
+    </div>
+  );
 }
