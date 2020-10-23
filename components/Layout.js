@@ -3,10 +3,10 @@
 import Header from "./Header";
 import Footer from "./Footer";
 
-const Layout = props => (
-  <div className="layout">
+export default (props) => (
+  <div class="layout">
     <Header />
-    <div className="content">
+    <div class="content">
       <div>
         <p>Oui</p>
       </div>
@@ -14,5 +14,3 @@ const Layout = props => (
     <Footer />
   </div>
 );
-
-export default Layout;

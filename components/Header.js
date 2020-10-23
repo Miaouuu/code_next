@@ -2,7 +2,7 @@
 
 import Head from "next/head";
 
-const Header = () => (
+export default () => (
   <div>
     <Head>
       <title>JPO</title>
@@ -21,5 +21,3 @@ const Header = () => (
     </Head>
   </div>
 );
-
-export default Header;
