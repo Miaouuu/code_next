@@ -2,9 +2,9 @@
   "name": "code_next",
   "version": "1.0.0",
   "scripts": {
-    "dev": "nodemon --watch server.js server.js",
+    "dev": "nodemon --watch src src/server.js",
     "build": "next build",
-    "prod": "cross-env NODE_ENV=production node server.js"
+    "prod": "cross-env NODE_ENV=production node src/server.js"
   },
   "dependencies": {
     "cross-env": "^7.0.2",

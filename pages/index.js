@@ -1,3 +1,5 @@
+// pages/index.js
+
 import io from "socket.io-client";
 import { useEffect } from "react";
 
