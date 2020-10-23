@@ -4,9 +4,9 @@ import Header from "./Header";
 import Footer from "./Footer";
 
 export default (props) => (
-  <div class="layout">
+  <div className="layout">
     <Header />
-    <div class="content">
+    <div className="content">
       <div>
         <p>Oui</p>
       </div>

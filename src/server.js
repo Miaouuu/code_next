@@ -10,8 +10,11 @@ const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
 
+const { createRoom, joinRoom } = require("./controller");
+
 io.on("connect", (socket) => {
-  console.log(socket);
+  socket.on("CREATE_ROOM", (type) => createRoom(type, socket));
+  socket.on("JOIN_ROOM", (pin) => joinRoom(pin, socket));
 });
 
 app.prepare().then(() => {
