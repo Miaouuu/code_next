@@ -5,11 +5,74 @@ class Room {
   pin;
   type;
   admin;
+  htmlCode;
+  cssCode;
+  jsCode;
+  resultCode;
 
   constructor(pin, type, admin) {
     this.pin = pin;
     this.type = type;
     this.admin = admin;
+    this.htmlCode = "";
+    this.cssCode = "";
+    this.jsCode = "";
+    this.resultCode = "";
+  }
+
+  /**
+   * Concatenate html, css and js
+   *
+   * @param {string} type
+   * @param {string} code
+   * @return {string}
+   */
+  updateResultCode(type, code) {
+    switch (type) {
+      case "html":
+        this.htmlCode = code;
+        break;
+      case "css":
+        this.cssCode = code;
+        break;
+      case "js":
+        this.jsCode = code;
+        break;
+    }
+    this.resultCode = `${this.htmlCode}<style>${this.cssCode}</style><script>${this.jsCode}</script>`;
+    return this.resultCode;
+  }
+
+  /**
+   * Get room index with pin
+   *
+   * @param {string} id
+   * @return {number}
+   */
+  static getRoomIndexWithPin(pinClient) {
+    return Room.ROOMS.findIndex(({ pin }) => pin === pinClient);
+  }
+
+  /**
+   * Get room index with admin id
+   *
+   * @param {string} id
+   * @return {number}
+   */
+  static getRoomIndexWithAdmin(id) {
+    return Room.ROOMS.findIndex(({ admin }) => admin === id);
+  }
+
+  /**
+   * Check if room exists
+   *
+   * @param {string} pinClient
+   * @return {boolean}
+   */
+  static checkRoom(pinClient) {
+    return Room.ROOMS.find(({ pin }) => pin === pinClient) === undefined
+      ? false
+      : true;
   }
 
   /**
@@ -60,13 +123,6 @@ class Room {
     }
     return pin;
   }
-
-  /**
-   * Join a new Room
-   *
-   * @param {string} pin
-   */
-  static joinRoom(pin) {}
 }
 
 module.exports = Room;
