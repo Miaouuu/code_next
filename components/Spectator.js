@@ -23,7 +23,7 @@ export default function Spectator({ socket, pin }) {
 
   return (
     <div>
-      <iframe id="preview"></iframe>
+      <iframe id="preview" class="preview-spec"></iframe>
     </div>
   );
 }

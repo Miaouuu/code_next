@@ -47,36 +47,44 @@ export default function Admin({ socket, pin }) {
 
   return (
     <div>
-      <Header />
-      <Qrcode value={window.location.href + pin} />
-      <CodeMirror
-        value={htmlCode}
-        options={{
-          mode: "htmlmixed",
-          theme: "monokai",
-          lineNumbers: true,
-        }}
-        onBeforeChange={(editor, data, value) => sendCode("html", value)}
-      />
-      <CodeMirror
-        value={cssCode}
-        options={{
-          mode: "css",
-          theme: "monokai",
-          lineNumbers: true,
-        }}
-        onBeforeChange={(editor, data, value) => sendCode("css", value)}
-      />
-      <CodeMirror
-        value={jsCode}
-        options={{
-          mode: "javascript",
-          theme: "monokai",
-          lineNumbers: true,
-        }}
-        onBeforeChange={(editor, data, value) => sendCode("js", value)}
-      />
-      <iframe id="preview"></iframe>
+      <div class="main-admin">
+        <div class="main-content">
+          <Header />
+          <Qrcode value={window.location.href + pin} />
+          <div class="flex-items">
+            <CodeMirror
+              value={htmlCode}
+              options={{
+                mode: "htmlmixed",
+                theme: "monokai",
+                lineNumbers: true,
+              }}
+              onBeforeChange={(editor, data, value) => sendCode("html", value)}
+            />
+            <CodeMirror
+              value={cssCode}
+              options={{
+                mode: "css",
+                theme: "monokai",
+                lineNumbers: true,
+              }}
+              onBeforeChange={(editor, data, value) => sendCode("css", value)}
+            />
+            <CodeMirror
+              value={jsCode}
+              options={{
+                mode: "javascript",
+                theme: "monokai",
+                lineNumbers: true,
+              }}
+              onBeforeChange={(editor, data, value) => sendCode("js", value)}
+            />
+          </div>
+        </div>   
+        <div class="iphone-x">
+          <iframe id="preview"></iframe>
+        </div>
+      </div>
     </div>
   );
 }
