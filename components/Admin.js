@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Qrcode from "qrcode.react";
+import Header from "./Header";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/monokai.css";
@@ -46,6 +47,7 @@ export default function Admin({ socket, pin }) {
 
   return (
     <div>
+      <Header />
       <Qrcode value={window.location.href + pin} />
       <CodeMirror
         value={htmlCode}
