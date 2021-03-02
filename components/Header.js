@@ -9,8 +9,8 @@ export default function Header() {
         <title>JPO</title>
         <meta property="og:title" content="JPO" key="title" />
 
-        <meta name="description" content="Site de la JPO du 14-11-2020" />
-        <meta property="og:description" content="Site de la JPO du 14-11-2020" key="description" />
+        <meta name="description" content="Site de la JPO du 06-03-2021" />
+        <meta property="og:description" content="Site de la JPO du 06-03-2021" key="description" />
 
         <meta property="og:url" content="#" key="url" />
         <meta property="og:type" content="website" key="type" />

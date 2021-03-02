@@ -1,5 +1,8 @@
 /* public/css/style.css */
 
+@import "./components/Exercices/Admin/_index.css";
+@import "./components/Exercices/Iphone-x/_index.css";
+
 * {
   margin: 0;
   padding: 0;
@@ -8,86 +11,4 @@
 
 body {
   padding: 20px;
-}
-
-.layout {
-  display: flex;
-  flex-direction: column;
-  height: 100%;
-  width: 100%;
-}
-
-.content {
-  flex: 1;
-  display: flex;
-  flex-direction: column;
-}
-
-#preview {
-  width: 100%;
-  margin: 0 auto;
-  border-radius: 20px;
-  height: 100%;
-  outline: none;
-  border: none;
-  padding: 30px 5px;
-}
-
-#preview.preview-spec {
-  padding: 5px;
-  height: 100vh;
-}
-
-.main-admin {
-  display: flex;
-}
-
-.main-content {
-  width: 70vw;
-}
-
-.flex-items {
-  display: flex;
-  flex-wrap: wrap;
-}
-
-.flex-items > div {
-  width: 50%;
-  flex-grow: 1;
-  border: 1px solid white;
-  border-left: none;
-  border-top: none;
-}
-
-.iphone-x {
-  position: relative;
-  margin: 40px auto 0 auto;
-  /*width: 360px;
-  height: 780px;*/
-  width: 314px;
-  height: 680px;
-  border-radius: 40px;
-  box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919,
-    0px 0px 0px 20px #111;
-}
-.iphone-x:before,
-.iphone-x:after {
-  content: "";
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
-}
-.iphone-x:after {
-  bottom: 7px;
-  width: 140px;
-  height: 4px;
-  background-color: #f2f2f2;
-  border-radius: 10px;
-}
-.iphone-x:before {
-  top: 0px;
-  width: 56%;
-  height: 30px;
-  background-color: #1f1f1f;
-  border-radius: 0px 0px 40px 40px;
 }

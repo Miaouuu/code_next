@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import io from "socket.io-client";
-import Admin from "../components/Admin";
+import Admin from "../components/Exercices/Admin";
 import Create from "../components/Create";
 import Spectator from "../components/Spectator";
 
@@ -17,7 +17,7 @@ export default function Index() {
 
   useEffect(() => {
     if (router.query.pin) {
-      socket.on("RES_JOIN_ROOM", (valid) => {
+      socket.on("RES_JOIN_ROOM", valid => {
         if (valid) {
           setPin(router.query.pin);
         }
@@ -32,15 +32,7 @@ export default function Index() {
     } else if (!admin && pin) {
       return <Spectator socket={socket} pin={pin} />;
     } else {
-      return (
-        <Create
-          socket={socket}
-          type={type}
-          onSetAdmin={(admin) => setAdmin(admin)}
-          onSetType={(type) => setType(type)}
-          onSetPin={(pin) => setPin(pin)}
-        />
-      );
+      return <Create socket={socket} type={type} onSetAdmin={admin => setAdmin(admin)} onSetType={type => setType(type)} onSetPin={pin => setPin(pin)} />;
     }
   };
 

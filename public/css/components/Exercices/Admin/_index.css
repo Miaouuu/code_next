@@ -1,0 +1,49 @@
+.layout {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: 100%;
+}
+
+.content {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+
+#preview {
+  width: 100%;
+  margin: 0 auto;
+  border-radius: 20px;
+  height: 100%;
+  outline: none;
+  border: none;
+  padding: 30px 5px;
+}
+
+#preview.preview-spec {
+  padding: 5px;
+  height: 100vh;
+}
+
+.main-admin {
+  display: flex;
+}
+
+.main-content {
+  width: 70vw;
+}
+
+.flex-items {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.flex-items > div {
+  width: 50%;
+  flex-grow: 1;
+  border: 1px solid white;
+  border-left: none;
+  border-top: none;
+}
+
