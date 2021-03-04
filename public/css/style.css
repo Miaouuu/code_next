@@ -1,7 +1,7 @@
 /* public/css/style.css */
 
-@import "./components/Exercices/Admin/_index.css";
-@import "./components/Exercices/Iphone-x/_index.css";
+@import "./components/Cours/Admin/_index.css";
+@import "./components/Cours/Iphone-x/_index.css";
 
 * {
   margin: 0;

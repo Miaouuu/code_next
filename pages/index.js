@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { useRouter } from "next/router";
 import io from "socket.io-client";
-import Admin from "../components/Exercices/Admin";
+import Admin from "../components/Cours/Admin";
 import Create from "../components/Create";
 import Spectator from "../components/Spectator";
 
