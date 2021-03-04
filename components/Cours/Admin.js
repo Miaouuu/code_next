@@ -2,7 +2,6 @@
 
 import { useEffect, useState } from "react";
 import Qrcode from "qrcode.react";
-import Header from "../Header";
 import Iphone from "./Iphone";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
@@ -50,7 +49,6 @@ export default function Admin({ socket, pin }) {
     <div>
       <div class="main-admin">
         <div class="main-content">
-          <Header />
           <Qrcode value={window.location.href + pin} />
           <div class="flex-items">
             <CodeMirror

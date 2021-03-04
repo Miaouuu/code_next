@@ -10,5 +10,36 @@
 }
 
 body {
-  padding: 20px;
+  min-height: 100vh;
+  min-width: 100vw;
+  background-color: #8ec5fc;
+  background-image: linear-gradient(225deg, #8ec5fc 63%, #e0c3fc 100%);
+}
+
+.content {
+  padding: 10px 16px;
+  margin: 0 auto;
+  flex: 1;
+  width: 90%;
+}
+
+@media screen and (min-width: 120rem) and (max-width: 90rem) {
+  .content {
+    max-width: 960px;
+  }
+}
+@media screen and (min-width: 90rem) and (max-width: 64rem) {
+  .content {
+    max-width: 720px;
+  }
+}
+@media screen and (min-width: 64rem) and (max-width: 40rem) {
+  .content {
+    max-width: 540px;
+  }
+}
+@media screen and (max-width: 40rem) {
+  .content {
+    width: calc(100% - 32px);
+  }
 }
