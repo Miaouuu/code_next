@@ -1,63 +1,63 @@
 // components/Exercices/Visual.js
 
 import Qrcode from "qrcode.react";
-import Iphone from "../Renders/Iphone"
-import data from "../../data/starwars.json"
+import Iphone from "../Renders/Iphone";
+import data from "../../data/starwars.json";
 import { useEffect, useState } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/monokai.css";
 
-export default function Visual({socket, pin}){
-  const [valid, setValid] = useState(false)
-  const [ord, setOrd] = useState([])
+export default function Visual({ socket, pin }) {
+  const [valid, setValid] = useState(false);
+  const [ord, setOrd] = useState([]);
 
   useEffect(() => {
     socket.on("RES_SEND_RESOLUTION", code => {
-      writeCode(code)
-      checkValid(code)
+      writeCode(code);
+      checkValid(code);
     });
-    writeCode()
+    writeCode();
   }, []);
 
-  const writeCode = (order) => {
+  const writeCode = order => {
     let preview = document.getElementById("preview");
     if (preview) {
       let turn = [];
-      if(order){
-        turn = order.map((or) => {
+      if (order) {
+        turn = order.map(or => {
           let text = data.data.find(d => d.type === or);
           return text.value;
-        })
+        });
       }
-      setOrd(turn)
+      setOrd(turn);
       let code = "";
       data.code.forEach((t, index) => {
-        code+=t;
-        if(index !== data.code.length){
-          code+=turn[index]
+        code += t;
+        if (index !== data.code.length) {
+          code += turn[index];
         }
-      })
+      });
       let content = preview.contentDocument || preview.contentWindow.document;
       content.open();
       content.write(code);
       content.close();
-      
     }
-  }
+  };
 
-  const checkValid = (order) => {
-    if(JSON.stringify(order) === JSON.stringify(data.order)){
-      setValid(true)
+  const checkValid = order => {
+    if (JSON.stringify(order) === JSON.stringify(data.order)) {
+      setValid(true);
     }
-  }
+  };
 
-  return <>
-    <div>
-      <Qrcode value={window.location.href + pin}/>
-      {valid ? <p>C'est bon</p> : null}
-      <CodeMirror
-              value={`<body>
+  return (
+    <>
+      <div>
+        <Qrcode value={window.location.href + pin} />
+        {valid ? <p>C'est bon</p> : null}
+        <CodeMirror
+          value={`
               <div class="starwars-demo">
                 <img src="${ord[0] ? ord[0] : "???"}" alt="Star" class="${ord[1] ? ord[1] : "???"}" />
                 <img src="${ord[2] ? ord[2] : "???"}" alt="Wars" class="${ord[3] ? ord[3] : "???"}" />
@@ -227,15 +227,15 @@ export default function Visual({socket, pin}){
                     font-size: 7px;
                   }
                 }
-              </style>
-            </body>`}
-              options={{
-                mode: "htmlmixed",
-                theme: "monokai",
-                lineNumbers: true
-              }}
-            />
-      <Iphone />
-    </div>
-  </>
+              </style>`}
+          options={{
+            mode: "htmlmixed",
+            theme: "monokai",
+            lineNumbers: true
+          }}
+        />
+        <Iphone />
+      </div>
+    </>
+  );
 }

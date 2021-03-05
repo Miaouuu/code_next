@@ -2,6 +2,8 @@
 
 @import "./components/Cours/Admin/_index.css";
 @import "./components/Cours/Spectator/_index.css";
+@import "./components/Exercices/Select/_index.css";
+@import "./components/Exercices/Visual/_index.css";
 @import "./components/Renders/Iphone-x/_index.css";
 @import "./components/_create.css";
 
@@ -29,6 +31,8 @@ body {
   margin: 0 auto;
   flex: 1;
   width: 90%;
+  flex-direction: row;
+  justify-content: space-between;
 }
 
 @media screen and (min-width: 120rem) and (max-width: 90rem) {
@@ -44,10 +48,12 @@ body {
 @media screen and (min-width: 64rem) and (max-width: 40rem) {
   .content {
     max-width: 540px;
+    flex-direction: column;
   }
 }
 @media screen and (max-width: 40rem) {
   .content {
     width: calc(100% - 32px);
+    flex-direction: column;
   }
 }
