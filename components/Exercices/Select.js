@@ -7,6 +7,13 @@ import data from "../../data/starwars.json"
 export default function Select({socket, pin}){
   const router = useRouter()
   const [order, setOrder] = useState([])
+  const [no, setNo] = useState([])
+
+  useEffect(() => {
+    socket.on("RES_SEND_RESOLUTION", order => {
+      setNo(order)
+    })
+  }, [])
 
   useEffect(() => {
     socket.emit("SEND_RESOLUTION", {order, pin: router.query.pin})
@@ -26,7 +33,7 @@ export default function Select({socket, pin}){
       {data.data.map((d, index) => {
         return (
           <div key={index}>
-            <p onClick={() => newOrder(d.type)}>{order.indexOf(d.type) === -1 ? "X" : order.indexOf(d.type) + 1} : {d.value}</p>
+            <p onClick={() => newOrder(d.type)}>{no.indexOf(d.type) === -1 ? "X" : no.indexOf(d.type) + 1} : {d.value}</p>
           </div>
         )
       })}
