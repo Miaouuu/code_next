@@ -70,9 +70,11 @@ class Room {
    * @return {boolean}
    */
   static checkRoom(pinClient) {
-    return Room.ROOMS.find(({ pin }) => pin === pinClient) === undefined
-      ? false
-      : true;
+    let room = Room.ROOMS.find(({ pin }) => pin === pinClient);
+    if(room){
+      return { exist: true, type: room.type }
+    }
+    return { exist: false, type: false }
   }
 
   /**

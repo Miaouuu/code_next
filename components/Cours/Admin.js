@@ -1,4 +1,4 @@
-// components/Erxercices/Admin.js
+// components/Cours/Admin.js
 
 import { useEffect, useState } from "react";
 import Qrcode from "qrcode.react";
@@ -58,7 +58,7 @@ export default function Admin({ socket, pin }) {
                 theme: "monokai",
                 lineNumbers: true
               }}
-              onBeforeChange={(editor, data, value) => sendCode("html", value)}
+              onBeforeChange={(editor, data, value) => {sendCode("html", value); console.log(value)}}
             />
             <CodeMirror
               value={cssCode}

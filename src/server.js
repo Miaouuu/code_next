@@ -16,6 +16,7 @@ const {
   checkRoom,
   sendCode,
   getResult,
+  sendSolution
 } = require("./controller");
 
 io.on("connect", (socket) => {
@@ -26,6 +27,7 @@ io.on("connect", (socket) => {
     sendCode(type, code, socket.id, io)
   );
   socket.on("GET_RESULT", (pin) => getResult(pin, socket));
+  socket.on("SEND_RESOLUTION", ({order, pin}) => sendSolution(order, pin, io))
 });
 
 app.prepare().then(() => {

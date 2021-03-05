@@ -17,7 +17,6 @@ export default function Pin() {
           router.push("/");
         }
       });
-      console.log(router.query.pin);
       socket.emit("CHECK_ROOM", router.query.pin);
     }
   }, [router]);

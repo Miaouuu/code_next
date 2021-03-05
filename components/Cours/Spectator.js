@@ -1,4 +1,4 @@
-// components/Spectator.js
+// components/Cours/Spectator.js
 
 import { useEffect, useState } from "react";
 
@@ -23,7 +23,7 @@ export default function Spectator({ socket, pin }) {
 
   return (
     <>
-      <iframe id="preview" class="preview-spec"></iframe>
+      <iframe id="preview" className="preview-spec"></iframe>
     </>
   );
 }

@@ -21,10 +21,10 @@ const createRoom = (type, socket) => {
  * @param {SocketIO.Socket} socket
  */
 const joinRoom = (pin, socket) => {
-  let exist = Room.checkRoom(pin.toUpperCase());
+  let { exist, type } = Room.checkRoom(pin.toUpperCase());
   if (exist) {
     socket.join(pin.toUpperCase());
-    socket.emit("RES_JOIN_ROOM", true);
+    socket.emit("RES_JOIN_ROOM", {valid: true, type});
   } else {
     socket.emit("RES_JOIN_ROOM", false);
   }
@@ -37,7 +37,7 @@ const joinRoom = (pin, socket) => {
  * @param {SocketIO.Socket} socket
  */
 const checkRoom = (pin, socket) => {
-  let exist = Room.checkRoom(pin.toUpperCase());
+  let { exist } = Room.checkRoom(pin.toUpperCase());
   socket.emit("RES_CHECK_ROOM", exist);
 };
 
@@ -56,7 +56,7 @@ const sendCode = (type, code, id, io) => {
 };
 
 /**
- * Send code for someone
+ * Send code to someone
  *
  * @param {string} pin
  * @param {SocketIO.Socket} socket
@@ -66,4 +66,8 @@ const getResult = (pin, socket) => {
   socket.emit("RES_GET_RESULT", Room.ROOMS[adminIndex].resultCode);
 };
 
-module.exports = { createRoom, joinRoom, checkRoom, sendCode, getResult };
+const sendSolution = (order, pin, io) => {
+  io.to(pin.toUpperCase()).emit("RES_SEND_RESOLUTION", order)
+}
+
+module.exports = { createRoom, joinRoom, checkRoom, sendCode, getResult, sendSolution };
