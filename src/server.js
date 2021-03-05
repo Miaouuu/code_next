@@ -5,7 +5,7 @@ const server = require("http").Server(express);
 const io = require("socket.io")(server);
 const next = require("next");
 
-const port = 3000;
+const port = process.env.PORT || 3000;
 const dev = process.env.NODE_ENV !== "production";
 const app = next({ dev });
 const handle = app.getRequestHandler();
