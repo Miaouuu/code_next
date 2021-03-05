@@ -1,8 +1,10 @@
 /* public/css/style.css */
 
 @import "./components/Cours/Admin/_index.css";
-@import "./components/Cours/Iphone-x/_index.css";
+@import "./components/Renders/Iphone-x/_index.css";
+@import "./components/_create.css";
 
+@import url("https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600&display=swap");
 * {
   margin: 0;
   padding: 0;
@@ -10,10 +12,15 @@
 }
 
 body {
-  min-height: 100vh;
-  min-width: 100vw;
   background-color: #8ec5fc;
   background-image: linear-gradient(225deg, #8ec5fc 63%, #e0c3fc 100%);
+}
+
+#__next {
+  display: flex;
+  min-height: 100vh;
+  min-width: 100vw;
+  flex: 1;
 }
 
 .content {

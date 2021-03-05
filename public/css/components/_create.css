@@ -1,0 +1,43 @@
+.activity-selector {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  height: 100%;
+  width: 100%;
+}
+
+.activity-selector--item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: 0.3s ease-in-out;
+  height: 100px;
+  width: 37%;
+  min-width: 200px;
+  background-color: #fff;
+  color: #0d5288;
+  border-radius: 6px;
+  font-family: "Nunito", sans-serif;
+  font-size: 2em;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.activity-selector--item:hover {
+  background-color: #0d5288;
+  color: #fff;
+}
+
+@media screen and (max-width: 64rem) {
+  .activity-selector {
+    flex-direction: column;
+    justify-content: center;
+  }
+  .activity-selector--item {
+    height: 75px;
+    width: 100%;
+    margin: 20px 0;
+    font-size: 1.6em;
+  }
+}

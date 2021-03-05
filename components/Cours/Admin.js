@@ -2,7 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Qrcode from "qrcode.react";
-import Iphone from "./Iphone";
+import Iphone from "../Renders/Iphone";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/monokai.css";
@@ -46,7 +46,7 @@ export default function Admin({ socket, pin }) {
   };
 
   return (
-    <div>
+    <>
       <div class="main-admin">
         <div class="main-content">
           <Qrcode value={window.location.href + pin} />
@@ -82,6 +82,6 @@ export default function Admin({ socket, pin }) {
         </div>
         <Iphone />
       </div>
-    </div>
+    </>
   );
 }
