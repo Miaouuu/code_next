@@ -47,10 +47,10 @@ export default function Admin({ socket, pin }) {
 
   return (
     <>
-      <div class="main-admin">
-        <div class="main-content">
+      <div className="main-admin">
+        <div className="main-content">
           <Qrcode value={window.location.href + pin} />
-          <div class="flex-items">
+          <div className="flex-items">
             <CodeMirror
               value={htmlCode}
               options={{

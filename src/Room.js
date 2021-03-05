@@ -39,7 +39,7 @@ class Room {
         this.jsCode = code;
         break;
     }
-    this.resultCode = `${this.htmlCode}<style>${this.cssCode}</style><script>${this.jsCode}</script>`;
+    this.resultCode = `${this.htmlCode}<style>${this.cssCode}</style><script>(function(){${this.jsCode}})()</script>`;
     return this.resultCode;
   }
 

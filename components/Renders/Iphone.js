@@ -1,6 +1,6 @@
 export default function Header() {
   return (
-    <div class="iphone-x">
+    <div className="iphone-x">
       <iframe id="preview"></iframe>
     </div>
   );
