@@ -10,6 +10,7 @@
   display: flex;
   flex-direction: row;
   margin-bottom: 16px;
+  justify-content: space-evenly;
 }
 
 .left-container--top canvas {
@@ -25,14 +26,20 @@
   background-color: #fff;
   border-radius: 6px;
   padding: 16px 24px;
+  max-height: 100px;
   cursor: pointer;
 }
 
 .left-container .react-codemirror2 {
   width: 100%;
 }
+
 .left-container .CodeMirror {
   height: calc(100vh - 250px);
+}
+
+.left-container .CodeMirror-vscrollbar {
+  display: none !important;
 }
 
 .right-container {
@@ -46,4 +53,20 @@
   height: 100%;
   border: 3px solid #0d5288;
   border-radius: 6px;
+}
+
+@media screen and (max-width: 90rem) {
+  .left-container {
+    flex-direction: column;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .right-container {
+    width: 90%;
+    margin: 10px auto 0 auto;
+  }
+
+  .right-container #preview {
+    width: 100%;
+  }
 }

@@ -57,182 +57,216 @@ export default function Visual({ socket, pin }) {
           <Qrcode value={window.location.href + pin} />
           {valid ? (
             <div className="left-container--top__victory">
-              <p>Recréer une Room</p>
+              <p>Quel boss</p>
             </div>
           ) : null}
         </div>
         <CodeMirror
-          value={`
-              <div class="starwars-demo">
-                <img src="${ord[0] ? ord[0] : "???"}" alt="Star" class="${ord[1] ? ord[1] : "???"}" />
-                <img src="${ord[2] ? ord[2] : "???"}" alt="Wars" class="${ord[3] ? ord[3] : "???"}" />
-                <h2 class="byline" id="byline">The Force Awakens</h2>
-              </div>
-              <script>
-                  let byline = document.getElementById("byline");
+          value={`<div class="starwars-demo">
+  <img src="${ord[0] ? ord[0] : "??????"}" alt="Star" class="${ord[1] ? ord[1] : "??????"}" />
+  <img src="${ord[2] ? ord[2] : "??????"}" alt="Wars" class="${ord[3] ? ord[3] : "??????"}" />
+  <h2 class="byline" id="byline">The Force Awakens</h2>
+</div>
+<script>
+  let byline = document.getElementById("byline");
+
+  bylineText = ${ord[4] ? ord[4] : "??????"};
+  bylineArr = bylineText.split("");
+  byline.innerHTML = "";
+
+  let span;
+  let letter;
+
+  for (${ord[5] ? ord[5] : "??????"}) {
+    span = document.createElement("span");
+    letter = document.createTextNode(bylineArr[i]);
+    if (${ord[6] ? ord[6] : "??????"}) {
+      byline.appendChild(letter);
+    } else {
+      span.appendChild(letter);
+      byline.appendChild(span);
+    }
+  }
+</${ord[7] ? ord[7] : "??????"}>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<style>
+  .star {
+    animation: star 10s ease-out infinite;
+  }
+  .wars {
+    animation: wars 10s ease-out infinite;
+  }
+  .byline span {
+    animation: spin-letters 10s linear infinite;
+  }
+  .byline {
+    animation: move-byline 10s linear infinite;
+  }
             
-                  bylineText = ${ord[4] ? ord[4] : "???"};
-                  bylineArr = bylineText.split("");
-                  byline.innerHTML = "";
+  @keyframes star {
+    0% {
+      opacity: 0;
+      transform: scale(1.5) translateY(-0.75em);
+    }
+    20% {
+      opacity: 1;
+    }
+    89% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateZ(-1000em);
+    }
+  }
             
-                  let span;
-                  let letter;
+  @keyframes wars {
+    0% {
+      opacity: 0;
+      transform: scale(1.5) translateY(0.5em);
+    }
+    20% {
+      opacity: 1;
+    }
+    90% {
+      opacity: 1;
+      transform: scale(1);
+    }
+    100% {
+      opacity: 0;
+      transform: translateZ(-1000em);
+    }
+  }
             
-                  for (${ord[5] ? ord[5] : "???"}) {
-                    span = document.createElement("span");
-                    letter = document.createTextNode(bylineArr[i]);
-                    if (${ord[6] ? ord[6] : "???"}) {
-                      byline.appendChild(letter);
-                    } else {
-                      span.appendChild(letter);
-                      byline.appendChild(span);
-                    }
-                  }
-              </${ord[7] ? ord[7] : "???"}>
-              <style>
-                .star {
-                  animation: star 10s ease-out infinite;
-                }
-                .wars {
-                  animation: wars 10s ease-out infinite;
-                }
-                .byline span {
-                  animation: spin-letters 10s linear infinite;
-                }
-                .byline {
-                  animation: move-byline 10s linear infinite;
-                }
+  @keyframes spin-letters {
+    0%,
+    10% {
+      opacity: 0;
+      transform: rotateY(90deg);
+    }
+    30% {
+      opacity: 1;
+    }
+    70%,
+    86% {
+      transform: rotateY(0);
+      opacity: 1;
+    }
+    95%,
+    100% {
+      opacity: 0;
+    }
+  }
             
-                @keyframes star {
-                  0% {
-                    opacity: 0;
-                    transform: scale(1.5) translateY(-0.75em);
-                  }
-                  20% {
-                    opacity: 1;
-                  }
-                  89% {
-                    opacity: 1;
-                    transform: scale(1);
-                  }
-                  100% {
-                    opacity: 0;
-                    transform: translateZ(-1000em);
-                  }
-                }
+  @keyframes move-byline {
+    0% {
+      transform: translateZ(5em);
+    }
+    100% {
+      transform: translateZ(0);
+    }
+  }
             
-                @keyframes wars {
-                  0% {
-                    opacity: 0;
-                    transform: scale(1.5) translateY(0.5em);
-                  }
-                  20% {
-                    opacity: 1;
-                  }
-                  90% {
-                    opacity: 1;
-                    transform: scale(1);
-                  }
-                  100% {
-                    opacity: 0;
-                    transform: translateZ(-1000em);
-                  }
-                }
+  .starwars-demo {
+    perspective: 800px;
+    transform-style: preserve3d;
+  }
             
-                @keyframes spin-letters {
-                  0%,
-                  10% {
-                    opacity: 0;
-                    transform: rotateY(90deg);
-                  }
-                  30% {
-                    opacity: 1;
-                  }
-                  70%,
-                  86% {
-                    transform: rotateY(0);
-                    opacity: 1;
-                  }
-                  95%,
-                  100% {
-                    opacity: 0;
-                  }
-                }
+  body {
+    background: #000
+      url(https://cssanimation.rocks/demo/starwars/images/bg.jpg);
+  }
             
-                @keyframes move-byline {
-                  0% {
-                    transform: translateZ(5em);
-                  }
-                  100% {
-                    transform: translateZ(0);
-                  }
-                }
+  .starwars-demo {
+    height: 17em;
+    left: 50%;
+    position: absolute;
+    top: 53%;
+    transform: translate(-50%, -50%);
+    width: 34em;
+  }
             
-                .starwars-demo {
-                  perspective: 800px;
-                  transform-style: preserve3d;
-                }
+  .byline span {
+    display: inline-block;
+  }
             
-                body {
-                  background: #000
-                    url(https://cssanimation.rocks/demo/starwars/images/bg.jpg);
-                }
+  img {
+    width: 100%;
+  }
             
-                .starwars-demo {
-                  height: 17em;
-                  left: 50%;
-                  position: absolute;
-                  top: 53%;
-                  transform: translate(-50%, -50%);
-                  width: 34em;
-                }
+  .star,
+  .wars,
+  .byline {
+    position: absolute;
+  }
             
-                .byline span {
-                  display: inline-block;
-                }
+  .star {
+    top: -0.75em;
+  }
             
-                img {
-                  width: 100%;
-                }
+  .wars {
+    bottom: -0.5em;
+  }
             
-                .star,
-                .wars,
-                .byline {
-                  position: absolute;
-                }
+  .byline {
+    color: #fff;
+    font-family: "ITC Serif Gothic", Lato;
+    font-size: 2.25em;
+    left: -2em;
+    letter-spacing: 0.4em;
+    right: -2em;
+    text-align: center;
+    text-transform: uppercase;
+    top: 29%;
+  }
             
-                .star {
-                  top: -0.75em;
-                }
+  @media only screen and (max-width: 600px) {
+    .starwars-demo {
+      font-size: 10px;
+    }
+  }
             
-                .wars {
-                  bottom: -0.5em;
-                }
-            
-                .byline {
-                  color: #fff;
-                  font-family: "ITC Serif Gothic", Lato;
-                  font-size: 2.25em;
-                  left: -2em;
-                  letter-spacing: 0.4em;
-                  right: -2em;
-                  text-align: center;
-                  text-transform: uppercase;
-                  top: 29%;
-                }
-            
-                @media only screen and (max-width: 600px) {
-                  .starwars-demo {
-                    font-size: 10px;
-                  }
-                }
-            
-                @media only screen and (max-width: 480px) {
-                  .starwars-demo {
-                    font-size: 7px;
-                  }
-                }
-              </style>`}
+  @media only screen and (max-width: 480px) {
+    .starwars-demo {
+      font-size: 7px;
+    }
+  }
+</style>`}
           options={{
             mode: "htmlmixed",
             theme: "monokai",

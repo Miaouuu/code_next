@@ -33,9 +33,9 @@ export default function Select({ socket, pin }) {
       <div className="responses-wrapper">
         {data.data.map((d, index) => {
           return (
-            <div key={index} className="responses-wrapper--item">
+            <div key={index} className="responses-wrapper--item" onClick={() => newOrder(d.type)}>
               <span className="responses-wrapper--item__number">{no.indexOf(d.type) === -1 ? "" : no.indexOf(d.type) + 1}</span>
-              <p onClick={() => newOrder(d.type)}>{d.value}</p>
+              <p>{d.value}</p>
             </div>
           );
         })}

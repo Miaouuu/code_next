@@ -12,7 +12,6 @@
   border: 3px solid #0d5288;
   background-color: #fff;
   border-radius: 6px;
-  max-height: 100px;
   cursor: pointer;
 }
 .responses-wrapper--item p {
@@ -30,8 +29,9 @@
   height: 35px;
   width: 35px;
   font-size: 1.3em;
-  top: -17%;
-  right: -3%;
+  top: 0;
+  right: 0;
+  transform: translate(35%, -35%);
   z-index: 100;
 }
 
@@ -39,11 +39,11 @@
   .responses-wrapper {
     grid-template-columns: repeat(1, 1fr);
   }
-  .responses-wrapper--item__number {
-    top: -14%;
-    right: -3%;
-  }
   .responses-wrapper--item {
     padding: 16px 24px;
+  }
+  .responses-wrapper--item p {
+    font-size: 12px;
+    word-break: break-all;
   }
 }
