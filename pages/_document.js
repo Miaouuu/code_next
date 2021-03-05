@@ -10,7 +10,6 @@ export default class MyDocument extends Document {
     return (
       <Html>
         <Head>
-          <title>JPO</title>
           <meta property="og:title" content="JPO" key="title" />
 
           <meta name="description" content="Site de la JPO du 06-03-2021" />
