@@ -1,7 +1,7 @@
 // src/server.js
 
 const express = require("express")();
-const server = require("https").Server(express);
+const server = require("http").Server(express);
 const io = require("socket.io")(server);
 const next = require("next");
 
