@@ -4,7 +4,8 @@
   "scripts": {
     "dev": "nodemon --watch src src/server.js",
     "build": "next build",
-    "start": "cross-env NODE_ENV=production node src/server.js"
+    "start": "cross-env NODE_ENV=production node src/server.js",
+    "export": "next export"
   },
   "dependencies": {
     "codemirror": "^5.58.1",
