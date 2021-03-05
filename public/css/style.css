@@ -23,7 +23,7 @@ body {
   display: flex;
   min-height: 100vh;
   min-width: 100vw;
-  flex: 1;
+  font-family: "Nunito", sans-serif;
 }
 
 .content {
@@ -32,7 +32,7 @@ body {
   flex: 1;
   width: 90%;
   flex-direction: row;
-  justify-content: space-between;
+  justify-content: space-evenly;
 }
 
 @media screen and (min-width: 120rem) and (max-width: 90rem) {

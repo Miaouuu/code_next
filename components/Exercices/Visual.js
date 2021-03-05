@@ -1,7 +1,6 @@
 // components/Exercices/Visual.js
 
 import Qrcode from "qrcode.react";
-import Iphone from "../Renders/Iphone";
 import data from "../../data/starwars.json";
 import { useEffect, useState } from "react";
 import { Controlled as CodeMirror } from "react-codemirror2";
@@ -53,9 +52,15 @@ export default function Visual({ socket, pin }) {
 
   return (
     <>
-      <div>
-        <Qrcode value={window.location.href + pin} />
-        {valid ? <p>C'est bon</p> : null}
+      <div className="left-container">
+        <div className="left-container--top">
+          <Qrcode value={window.location.href + pin} />
+          {valid ? (
+            <div className="left-container--top__victory">
+              <p>Recréer une Room</p>
+            </div>
+          ) : null}
+        </div>
         <CodeMirror
           value={`
               <div class="starwars-demo">
@@ -234,7 +239,9 @@ export default function Visual({ socket, pin }) {
             lineNumbers: true
           }}
         />
-        <Iphone />
+      </div>
+      <div className="right-container">
+        <iframe id="preview"></iframe>
       </div>
     </>
   );

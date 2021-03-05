@@ -1,0 +1,49 @@
+.left-container {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  width: calc(50% - 20px);
+  align-items: center;
+}
+
+.left-container--top {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 16px;
+}
+
+.left-container--top canvas {
+  width: 200px !important;
+  height: 200px !important;
+}
+
+.left-container--top__victory {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border: 3px solid #0d5288;
+  background-color: #fff;
+  border-radius: 6px;
+  padding: 16px 24px;
+  cursor: pointer;
+}
+
+.left-container .react-codemirror2 {
+  width: 100%;
+}
+.left-container .CodeMirror {
+  height: calc(100vh - 250px);
+}
+
+.right-container {
+  display: flex;
+  height: 100%;
+  width: calc(50% - 20px);
+}
+
+.right-container #preview {
+  width: 100%;
+  height: 100%;
+  border: 3px solid #0d5288;
+  border-radius: 6px;
+}
