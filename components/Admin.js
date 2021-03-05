@@ -80,7 +80,7 @@ export default function Admin({ socket, pin }) {
               onBeforeChange={(editor, data, value) => sendCode("js", value)}
             />
           </div>
-        </div>   
+        </div>
         <div class="iphone-x">
           <iframe id="preview"></iframe>
         </div>
