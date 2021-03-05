@@ -1,8 +1,8 @@
-// components/Admin.js
+// components/Erxercices/Admin.js
 
 import { useEffect, useState } from "react";
 import Qrcode from "qrcode.react";
-import Header from "./Header";
+import Iphone from "../Renders/Iphone";
 import { Controlled as CodeMirror } from "react-codemirror2";
 import "codemirror/lib/codemirror.css";
 import "codemirror/theme/monokai.css";
@@ -19,7 +19,7 @@ export default function Admin({ socket, pin }) {
   const [jsCode, setJsCode] = useState("");
 
   useEffect(() => {
-    socket.on("RES_SEND_CODE", (code) => {
+    socket.on("RES_SEND_CODE", code => {
       let preview = document.getElementById("preview");
       if (preview) {
         let content = preview.contentDocument || preview.contentWindow.document;
@@ -46,10 +46,9 @@ export default function Admin({ socket, pin }) {
   };
 
   return (
-    <div>
+    <>
       <div class="main-admin">
         <div class="main-content">
-          <Header />
           <Qrcode value={window.location.href + pin} />
           <div class="flex-items">
             <CodeMirror
@@ -57,7 +56,7 @@ export default function Admin({ socket, pin }) {
               options={{
                 mode: "htmlmixed",
                 theme: "monokai",
-                lineNumbers: true,
+                lineNumbers: true
               }}
               onBeforeChange={(editor, data, value) => sendCode("html", value)}
             />
@@ -66,7 +65,7 @@ export default function Admin({ socket, pin }) {
               options={{
                 mode: "css",
                 theme: "monokai",
-                lineNumbers: true,
+                lineNumbers: true
               }}
               onBeforeChange={(editor, data, value) => sendCode("css", value)}
             />
@@ -75,16 +74,14 @@ export default function Admin({ socket, pin }) {
               options={{
                 mode: "javascript",
                 theme: "monokai",
-                lineNumbers: true,
+                lineNumbers: true
               }}
               onBeforeChange={(editor, data, value) => sendCode("js", value)}
             />
           </div>
         </div>
-        <div class="iphone-x">
-          <iframe id="preview"></iframe>
-        </div>
+        <Iphone />
       </div>
-    </div>
+    </>
   );
 }

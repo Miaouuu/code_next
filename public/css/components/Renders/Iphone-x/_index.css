@@ -1,0 +1,33 @@
+.iphone-x {
+  position: relative;
+  margin: 40px auto 0 auto;
+  /*width: 360px;
+  height: 780px;*/
+  width: 314px;
+  height: 680px;
+  border-radius: 40px;
+  box-shadow: 0px 0px 0px 11px #1f1f1f, 0px 0px 0px 13px #191919, 0px 0px 0px 20px #111;
+  background-color: #fff;
+}
+.iphone-x:before,
+.iphone-x:after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.iphone-x:after {
+  bottom: 7px;
+  width: 140px;
+  height: 4px;
+  /* background-color: #f2f2f2; */
+  background-color: #000;
+  border-radius: 10px;
+}
+.iphone-x:before {
+  top: 0px;
+  width: 56%;
+  height: 30px;
+  background-color: #1f1f1f;
+  border-radius: 0px 0px 40px 40px;
+}
